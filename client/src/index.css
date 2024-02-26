@@ -1,3 +1,7 @@
+* {
+    margin: 0
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header-title {
+    font-size: 2.5rem;
+}
+
+.header-link {
+    font-size: 1.5rem;
+}
+
+.text-sm {
+    font-size: 1.5rem;
+}
+
+.text-xsm {
+    font-size: 1.25rem;
+}
+
+.border-2-black {
+    border: 2px solid black
+}
+
+.rounded {
+    border-radius: 1rem;
 }
