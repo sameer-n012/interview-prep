@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const port = 5000;
 const dbm = new QuestionDBManager('question_cache.json')
-setInterval(dbm.save(), 1000 * 60); // save db every minute
+setInterval(dbm.save, 1000 * 60); // save db every minute
 
 app.use(cors())
 
