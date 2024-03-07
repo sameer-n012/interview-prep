@@ -43,7 +43,7 @@ app.get('/gen/:topic', async (req, res) => {
         console.log(`${input}: ${text}`);
         res.send(text)
     } catch (err) {
-        console.log(`${input}: ${err}`);
+        console.log(`${err}`);
         res.send(err)
     }
 })

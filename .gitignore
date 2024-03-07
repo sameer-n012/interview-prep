@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.env
 
+# Ignoring db files except python
+db/data/*
+db/chroma/*
