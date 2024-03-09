@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import fetch from 'node-fetch'
 import cors from 'cors'
+import { ChromadbClient } from './chromadbClient.js';
 
 globalThis.fetch = fetch
 
@@ -12,6 +13,8 @@ dotenv.config();
 const app = express();
 const port = 5000;
 const dbm = new QuestionDBManager('question_cache.json')
+const chromadbClient = new ChromadbClient();
+chromadbClient.setCollection();
 setInterval(dbm.save, 1000 * 60); // save db every minute
 
 app.use(cors())
@@ -26,6 +29,9 @@ app.get('/gen/:topic', async (req, res) => {
         const input = req.params.topic
         const genAI = new GoogleGenerativeAI(process.env.API_KEY);
         const model = genAI.getGenerativeModel({ model: process.env.MODEL_NAME });
+
+        examples = await chromadbClient.query(input, 3)
+        console.log(examples)
 
         const prompt = `You are an interviewer for a computer science position. \
                         You should not repeat the topic in your response. \

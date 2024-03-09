@@ -48,6 +48,6 @@ export const QuestionDBManager = class {
 	}
 
     save() {
-        this.db.saveDatabase();
+		this.db ? this.db.saveDatabase() : undefined;
     }
 };
