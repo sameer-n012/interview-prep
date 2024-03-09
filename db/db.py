@@ -60,6 +60,17 @@ def seed_db(collection):
     )
     counter += len(prompts)
 
+    df = pd.read_csv(os.path.join("data", "train.csv"))
+    l2t = LatexNodes2Text()
+    df["question"] = df["question"].apply(l2t.latex_to_text)
+    prompts = df["question"].to_list()
+    collection.add(
+        documents=prompts,
+        ids=[f"id{i}" for i in range(counter, len(prompts) + counter)],
+    )
+    counter += len(prompts)
+
+
     # Grabbing data from datascience_questions CSV
     df = pd.read_csv(os.path.join("data", "datascience_questions.csv"))
     prompts = df["Questions"].to_list()

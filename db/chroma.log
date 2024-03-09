@@ -1,0 +1,43 @@
+[33mWARNING[0m:  [08-03-2024 21:13:14] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048576. chroma_server_nofile will not be set.
+[32mINFO[0m:     [08-03-2024 21:13:14] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component System
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component SqliteDB
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component Posthog
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [08-03-2024 21:13:14] Starting component SegmentAPI
+[32mINFO[0m:     [08-03-2024 21:13:15] Started server process [[36m5673[0m]
+[32mINFO[0m:     [08-03-2024 21:13:15] Waiting for application startup.
+[32mINFO[0m:     [08-03-2024 21:13:15] Application startup complete.
+[32mINFO[0m:     [08-03-2024 21:13:15] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-03-2024 21:29:38] 127.0.0.1:49546 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:30:09] 127.0.0.1:44682 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:33:53] 127.0.0.1:53110 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:34:52] 127.0.0.1:43050 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:37:23] 127.0.0.1:34684 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:52:39] 127.0.0.1:56230 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:52:40] 127.0.0.1:56230 - "GET /favicon.ico HTTP/1.1" 404
+[32mINFO[0m:     [08-03-2024 21:53:39] 127.0.0.1:56236 - "GET /api/v1/documents/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 404
+[32mINFO[0m:     [08-03-2024 21:54:34] 127.0.0.1:47032 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [08-03-2024 21:55:00] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [08-03-2024 21:55:00] 127.0.0.1:44054 - "POST /api/v1/collections/f53f5122-3bff-4833-bc15-07fb95d768dc/query HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:55:11] 127.0.0.1:49440 - "POST /api/v1/collections/f53f5122-3bff-4833-bc15-07fb95d768dc/query HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:56:38] 127.0.0.1:36510 - "GET /api/v1/collections/db_question_collection?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:56:56] 127.0.0.1:50210 - "POST /api/v1/collections/f53f5122-3bff-4833-bc15-07fb95d768dc/query HTTP/1.1" 200
+[32mINFO[0m:     [08-03-2024 21:57:49] 127.0.0.1:36402 - "GET /api/v1/collections/f53f5122-3bff-4833-bc15-07fb95d768dc/query HTTP/1.1" 405
+[32mINFO[0m:     [08-03-2024 22:02:52] 127.0.0.1:38386 - "GET /api/v1/collections/f53f5122-3bff-4833-bc15-07fb95d768dc/query HTTP/1.1" 405
+[32mINFO[0m:     [08-03-2024 22:03:40] Shutting down
+[32mINFO[0m:     [08-03-2024 22:03:40] Waiting for application shutdown.
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component System
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component SegmentAPI
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component Posthog
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component SqliteDB
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-03-2024 22:03:40] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [08-03-2024 22:03:40] Application shutdown complete.
+[32mINFO[0m:     [08-03-2024 22:03:40] Finished server process [[36m5673[0m]
