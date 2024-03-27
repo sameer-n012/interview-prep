@@ -22,9 +22,9 @@ export const ChromadbClient = class {
         }
         
         return await this.collection.query({
-        nResults: n, // n_results
-        queryTexts: [queryText], // query_text
-        include: [ "documents" ]
+            nResults: n, // n_results
+            queryTexts: [queryText], // query_text
+            include: [ "documents" ]
         })
     }
 };

@@ -5,6 +5,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import fetch from 'node-fetch'
 import cors from 'cors'
 import { ChromadbClient } from './chromadbClient.js';
+import { large_prompt_template, small_prompt_template } from './prompt_template.js';
 
 globalThis.fetch = fetch
 
@@ -26,23 +27,44 @@ app.get('/', (req, res) => {
 app.get('/gen/:topic', async (req, res) => {
     try {
         console.log(req.params.topic)
-        const input = req.params.topic
+        const input = req.params.topic.substring(1);
         const genAI = new GoogleGenerativeAI(process.env.API_KEY);
         const model = genAI.getGenerativeModel({ model: process.env.MODEL_NAME });
 
-        examples = await chromadbClient.query(input, 3)
-        console.log(examples)
+        function withTimeout(ms, promise) {
+            let timeout = new Promise((resolve, reject) => {
+                let id = setTimeout(() => {
+                    clearTimeout(id);
+                    reject('Timed out in '+ ms + 'ms.')
+                }, ms)
+            })
+        
+            return Promise.race([
+                promise,
+                timeout
+            ])
+        }
+        
+        // Usage:
+        let example = undefined;
+        try {
+            example = await withTimeout(1000 * 30, chromadbClient.query(input, 3));
+        } catch(e) {
+            console.log(e);
+        }
 
-        const prompt = `You are an interviewer for a computer science position. \
-                        You should not repeat the topic in your response. \
-                        You should not provide examples of inputs and outputs in your response. \
-                        Your response should ONLY include the question you are asking. \
-                        Ask a programming question about the following topic to the interviewee: \n\
-                        ${input}.`;
+        let prompt = undefined;
+        if (example == undefined) {
+            prompt = small_prompt_template(input);
+            console.log('No examples retrieved. Using small prompt template.');
+        } else {
+            prompt = large_prompt_template(input, example);
+            console.log('Examples retrieved. Using large prompt template.');
+        }
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        const text = response.text();
+        const text = response.text().replace(/^\s*(\$){4}\s*/g, "").replace(/\s*(\$){4}\s*$/g, "");
 
         await dbm.insert(input, text);
 
