@@ -47,7 +47,8 @@ export const QuestionDBManager = class {
 			.data();
 	}
 
-    save() {
+    save = () => {
+		console.log('Saving database');
 		this.db ? this.db.saveDatabase() : undefined;
     }
 };

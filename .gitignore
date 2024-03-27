@@ -24,6 +24,10 @@ yarn-error.log*
 
 *.env
 
+server/question_cache.json
+
+
 # Ignoring db files except python
 db/data/*
 db/chroma/*
+db/chroma.log
