@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 app.get('/gen/:topic', async (req, res) => {
     try {
         console.log(req.params.topic)
-        const input = req.params.topic.substring(1);
+        const input = req.params.topic.replace(":", "");
         const genAI = new GoogleGenerativeAI(process.env.API_KEY);
         const model = genAI.getGenerativeModel({ model: process.env.MODEL_NAME });
 
